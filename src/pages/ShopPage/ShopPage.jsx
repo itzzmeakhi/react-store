@@ -1,28 +1,14 @@
-import React, { Component } from 'react';
-
-import Collection from '../../components/Collection/Collection';
-import ShopData from './../../utils/data/shopData';
+import React from 'react';
+import { Outlet } from 'react-router-dom';
 
 import './ShopPage.scss';
 
-class ShopPage extends Component {
-    constructor() {
-        super();
-        this.state = {
-            collections: ShopData
-        }
-    }
-
-    render() {
-        const { collections } = this.state;
-        return (
-            <div className="shoppage">
-                {collections.map(({ id, ...otherCollectionProps }) => (
-                    <Collection key={id} {...otherCollectionProps} />
-                ))}
-            </div>
-        );
-    }
+const ShopPage = (props) => {
+    return (
+        <div className="shoppage">
+            <Outlet />
+        </div>
+    );
 }
 
 export default ShopPage;
